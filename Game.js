@@ -88,6 +88,7 @@ PlayState.preload = function () {
   this.game.load.image('grass:6x1', 'images/grass_6x1.png')
   this.game.load.image('grass:2x1', 'images/grass_2x1.png')
   this.game.load.image('grass:1x1', 'images/grass_1x1.png')
+  // this.game.load.image('decoration', 'images/decor.png')
   // this.game.load.image('hero', 'assets/Players/bunny1_stand.png', 60, 101)
   // this.game.load.image('hero', 'assets/Players/bunny1_walk1.png', 60, 101)
   // this.game.load.image('hero', 'assets/Players/bunny1_walk2.png', 60, 101)
@@ -117,7 +118,10 @@ PlayState.create = function () {
 PlayState._loadLevel = function (data) {
   this.bgDecoration = this.game.add.group()
   this.platforms = this.game.add.group()
-  this.decor = this.game.add.group()
+  // data.decoration.forEach(function (deco) {
+  //       this.bgDecoration.add(
+  //           this.game.add.image(deco.x, deco.y, 'decoration', deco.frame))
+  //   }, this)
   data.platforms.forEach(this._spawnPlatform, this)
   this._spawnCharacters({hero: data.hero})
   this.coins = this.game.add.group()
